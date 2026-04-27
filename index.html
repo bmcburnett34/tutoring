@@ -13,7 +13,7 @@
       "name": "SAT Math Tutoring",
       "description": "Expert SAT math tutoring in Rome, Georgia and Floyd County",
       "url": "https://yourwebsite.com",
-      "email": "info@satmathpro.com",
+      "email": "satmathrome@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Rome",
@@ -373,14 +373,7 @@
             margin-bottom: 1.4rem;
         }
 
-        .program-rate .rate-currency {
-            font-size: 0.85em;
-            position: relative;
-            top: 0.1em;
-            margin-right: 0.08em;
-        }
-
-        .program-rate span {
+.program-rate span {
             font-family: 'Lato', sans-serif;
             font-size: 0.8rem;
             font-weight: 700;
@@ -770,7 +763,7 @@
             <div class="program">
                 <div class="program-name">Foundations</div>
                 <div class="program-target">For scores under 650</div>
-                <div class="program-rate"><span class="rate-currency">$</span>90 <span>/ hr</span></div>
+                <div class="program-rate">$90 <span>/ hr</span></div>
                 <p class="program-description">
                     For students who need to solidify the fundamentals before scores can move. We build the foundation, develop the strategies, and create the habits that produce consistent improvement.
                 </p>
@@ -786,7 +779,7 @@
             <div class="program">
                 <div class="program-name">Precision</div>
                 <div class="program-target">For 650+ scorers</div>
-                <div class="program-rate"><span class="rate-currency">$</span>90 <span>/ hr</span></div>
+                <div class="program-rate">$90 <span>/ hr</span></div>
                 <p class="program-description">
                     For students within reach of an elite score. We identify what's holding them back, close the remaining gaps, and sharpen their performance for test day.
                 </p>
@@ -885,7 +878,7 @@
 
             <div class="form-success" id="formSuccess">
                 <strong>Message received.</strong>
-                <p>I'll be in touch within one business day to schedule your free consultation.</p>
+                <p>I try to respond within 8 hours, but often much sooner.</p>
             </div>
         </div>
     </section>
@@ -908,20 +901,18 @@
             document.querySelector('.hamburger').classList.remove('open');
         }
 
-        function handleSubmit(e) {
+        async function handleSubmit(e) {
             e.preventDefault();
             const form = e.target;
-            const name    = form.name.value.trim();
-            const email   = form.email.value.trim();
-            const program = form.program.value;
-            const message = form.message.value.trim();
-
-            const subject = `Tutoring Inquiry${program ? ' â€” ' + (program === 'foundations' ? 'Foundations' : 'Precision') : ''}`;
-            const body    = `Name: ${name}\nEmail: ${email}\nProgram: ${program || 'Not specified'}\n\n${message}`;
-            window.location.href = `mailto:info@satmathpro.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            form.style.display = 'none';
-            document.getElementById('formSuccess').style.display = 'block';
+            const response = await fetch('https://formspree.io/f/xvzdjkqy', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                form.style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            }
         }
     </script>
 </body>
