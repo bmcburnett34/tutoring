@@ -504,7 +504,8 @@
         }
 
         .degree-entry {
-            display: block;
+            display: flex;
+            align-items: baseline;
             font-size: 0.9rem;
             line-height: 1.8;
             color: var(--navy);
@@ -517,7 +518,8 @@
             font-size: 0.9rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            margin-right: 0.4rem;
+            width: 2.4rem;
+            flex-shrink: 0;
         }
 
         .degree-field {
@@ -715,6 +717,10 @@
             .programs-grid { grid-template-columns: 1fr; }
             .credentials-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn-gold,
+            .hero-actions .btn-outline-cream { width: 100%; text-align: center; }
+
             .form-row { grid-template-columns: 1fr; }
             .form-submit { flex-direction: column; align-items: flex-start; }
         }
@@ -799,7 +805,7 @@
     <section class="credentials" id="about">
         <div class="credentials-grid">
             <div class="credentials-col">
-                <h3>My Background</h3>
+                <h3>About Me</h3>
                 <div class="degree-school">Georgia Tech</div>
                 <div class="degree-entries">
                     <div class="degree-entry">
