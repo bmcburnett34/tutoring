@@ -226,31 +226,26 @@
         }
 
         /* Image area */
-        .essay-image {
-            width: 100%;
-            background: var(--cream-dark);
-            border-bottom: 1px solid var(--border);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 360px;
+        .essay-figure {
+            max-width: 420px;
+            margin: 2.5rem auto;
         }
 
         .essay-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
+            border: 1px solid var(--border);
         }
 
-        .essay-image-placeholder {
+        .essay-figure-caption {
+            text-align: center;
+            padding: 1rem 0 0;
             font-family: 'Lato', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--border);
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.7;
         }
 
         /* Essay Body */
@@ -370,12 +365,19 @@
         <h1>Math Isn't<br><em>Taught Well.</em></h1>
     </section>
 
-    <!-- Add <img> here when photo is ready -->
-
     <section class="essay-body">
         <p>From kindergarten through high school, math is taught as a sequence of disconnected topics. Students move through them on a fixed schedule, spending just enough time with each one to pass a test before the class moves on. After years of it, students have been introduced to what looks like hundreds of different concepts. Almost all of them are actually the same handful of ideas, and students have genuinely mastered very few of them.</p>
 
         <p>The SAT isn't testing whether your student has seen the material. It's testing whether they understand it well enough to use it when a question doesn't look like what they've practiced. Years of school spent jumping from topic to topic rarely builds the depth needed to perform consistently under pressure.</p>
+
+        <figure class="essay-figure">
+            <div class="essay-image">
+                <img src="books.jpg" alt="Stack of SAT prep books — Princeton Review, Kaplan, Barron's, The Official SAT Study Guide">
+            </div>
+            <figcaption class="essay-figure-caption">
+                Why do these books need so many pages? Something isn't adding up.
+            </figcaption>
+        </figure>
 
         <p>I've found there are only about ten mathematical ideas at the core of what the SAT tests. Students who understand them find the test manageable. Students trained to apply procedures find it unpredictable and uncomfortable.</p>
 
